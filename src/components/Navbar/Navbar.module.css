@@ -1,0 +1,28 @@
+.nav {
+    display: grid;
+    grid-area: n;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(10, 1fr);
+    background-color: rgb(155, 162, 233);;
+  }
+
+.nav .item {
+    font-size:large;
+    font-weight: bold;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    align-self: center;
+    justify-self: center;
+}
+
+.item a{
+   color: rgb(61, 61, 61);
+   text-decoration: none;
+}
+
+.item a.activeLink {
+    padding: 7px;
+    border-radius: 5%;
+    color: rgb(248, 139, 139);
+    background-color: rgb(255, 255, 255);
+}

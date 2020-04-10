@@ -1,0 +1,12 @@
+
+.posts {
+    color: rgb(255, 255, 255)
+}
+
+.item:hover {
+  transition: 1s linear;
+    transform: scaleX(1.2);
+    color: rgb(248, 244, 244); 
+    background: rgba(233, 25, 25, 0.993);
+
+}

@@ -1,0 +1,59 @@
+.content  {
+  display: grid;  
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: 10;
+  grid-template-rows: 2;
+  grid-gap: 10px;
+  background-color: rgb(201, 250, 246);
+  color: rgb(26, 3, 3);
+  margin-top: 20px;
+  border-style: solid;
+  border-color: rgb(148, 148, 148);
+  border-radius: 30px;
+}
+
+.avatar img  {
+  display: grid;
+  height: 50px;
+  border-radius: 50%;
+
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+
+  padding: 10px; 
+}
+
+
+.posts .message {
+  display: grid;
+  justify-items: start;
+  grid-column-start: 2;
+  grid-column-end: 8;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  
+  padding: 20px;
+}
+
+.likes img {
+  grid-column: 1;
+  grid-row: 2;
+  color: rgb(105, 105, 105);
+  height: 25px;
+  
+  padding: 10px;  
+}
+
+.item:hover {
+  transition: 1s linear;
+  transform: scaleX(1.2);
+  color: rgb(248, 244, 244); 
+  background: rgba(233, 25, 25, 0.993);
+}
+
+
