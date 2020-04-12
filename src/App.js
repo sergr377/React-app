@@ -17,13 +17,12 @@ function App(props) {
           <div className='app-wrapper-content'>
             <Route path='/dialogs'
               render={() => <Dialogs
-                dialogs={props.appState.dialogsPage.dialogs}
-                messageData={props.appState.dialogsPage.messageData} 
+                dialogs={props.state.dialogsPage.dialogs}
+                messageData={props.state.dialogsPage.messageData} 
                 dispatch={props.dispatch} />} />
             <Route path='/profile'
               render={() => <Profile
-                posts={props.appState.profilePage.posts}
-                profilePage={props.appState.profilePage}
+                profilePage={props.state.profilePage}
                 dispatch={props.dispatch} />} />
           </div>
         </div>
@@ -31,5 +30,5 @@ function App(props) {
     </BrowserRouter>
   );
 }
-//testimg git
+
 export default App;
