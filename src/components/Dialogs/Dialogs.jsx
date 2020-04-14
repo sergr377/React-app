@@ -9,10 +9,10 @@ const Dialogs = (props) => {
 
 
     let dialogsElements = state.dialogs.map(d =>
-        <DialogItem name={d.name} id={d.id} />
+        <DialogItem name={d.name} key={d.id} />
     );
     let messagesElements = state.messageData.map(m =>
-        <Message message={m.message} id={m.id} />
+        <Message message={m.message} key={m.id} />
     );
     let newMessageBody = state.newMessageBody;
 
@@ -32,14 +32,15 @@ const Dialogs = (props) => {
             <div className={s.dialogsItem} >
                 {dialogsElements}
             </div>
-            
+
             <div className={s.messages}>
                 {messagesElements}
             </div>
-            <div
-                className={s.textArea}><textarea
+            <div className={s.textArea}>
+                <textarea
                     onChange={onMessageChange}
-                    value={newMessageBody}> </textarea>
+                    value={newMessageBody}>
+                </textarea>
                 <div><button onClick={addMessage}> New message </button></div>
             </div>
         </div>
