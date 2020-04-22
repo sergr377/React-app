@@ -1,18 +1,14 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 
 let initialState = {
-    users: [
-        // { id: 1, photoURL: 'https://avatars.mds.yandex.net/get-pdb/912419/217bc0b0-4e5b-4a01-a6f8-e81f84dedcb1/s1200?webp=false',
-        //  followed: true, fullName: 'Dima', status: 'fierd', location: { city: 'Moscow', country: 'Russia' } },
-        // { id: 2, photoURL: '',
-        //  followed: true, fullName: 'Alexia', status: 'What\'s going one?', location: { city: 'Krakov', country: 'Poland' } },
-        // { id: 3, photoURL: '',
-        //  followed: true, fullName: 'Sergey', status: 'in progress', location: { city: 'Moscow', country: 'Russia' } },
-        // { id: 4, photoURL: '',
-        //  followed: false, fullName: 'German', status: 'It\s okay', location: { city: 'Kaunas', country: 'Russia' } },
-    ],
+    users: [],
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 4,
     newPostText: 'New post',
 };
 
@@ -41,7 +37,15 @@ export const usersReduser = (state = initialState, action) => {
                 }),
             }
         case SET_USERS: {
-            return { ...state, users: [...state.users, ...action.users] }
+            return { ...state, users: action.users}
+        }
+
+        case SET_CURRENT_PAGE: {
+            return { ...state, currentPage: action.currentPage }
+        }
+
+        case SET_TOTAL_USERS_COUNT: {
+            return { ...state, totalUsersCount: action.count }
         }
 
         default:
@@ -53,5 +57,8 @@ export const usersReduser = (state = initialState, action) => {
 export const followAC = (userId) => { return { type: FOLLOW, userId } }
 export const unfollowAC = (userId) => { return { type: UNFOLLOW, userId } }
 export const setUsersAC = (users) => { return { type: SET_USERS, users } }
+export const setCurrentPageAC = (currentPage) => { return { type: SET_CURRENT_PAGE, currentPage } }
+export const setTotalUserCountAC = (totalUsersCount) => { return { type: SET_TOTAL_USERS_COUNT, count: totalUsersCount } }
+
 
 export default usersReduser
