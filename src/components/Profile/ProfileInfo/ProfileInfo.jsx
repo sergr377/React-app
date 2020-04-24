@@ -1,10 +1,17 @@
 import React from 'react';
 import s from './ProfileInfo.module.css';
+import Preloader from '../../common/preloader';
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+    
+    if (props.profile == null || undefined) {
+        return <Preloader />
+    }
+    
     return (
         <div className={s.descriptionBlock}>
-            <a>ava + description</a>
+            <img src={props.profile.photos.small} />
+            <div><a>description</a></div>
         </div>
     )
 }
