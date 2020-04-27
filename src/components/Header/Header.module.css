@@ -8,3 +8,10 @@
   margin: 20px;
 } 
 
+.loginBlock .login {
+  float: right;
+  text-decoration: none;
+  margin: 20px;
+  color: rgb(241, 236, 236);
+  font-weight: bold;
+}

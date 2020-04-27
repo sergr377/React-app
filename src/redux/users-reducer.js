@@ -14,7 +14,7 @@ let initialState = {
     isFetching: true,
 };
 
-export const usersReduser = (state = initialState, action) => {
+export const usersReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case FOLLOW:
@@ -68,4 +68,4 @@ export const setTotalUserCountAC = (totalUsersCount) => { return { type: SET_TOT
 export const toggleIsFetchingAC = (isFetching) => { return { type: TOGGLE_IS_FETCHING, isFetching } }
 
 
-export default usersReduser
+export default usersReducer
