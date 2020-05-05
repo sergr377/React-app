@@ -26,7 +26,7 @@ const Dialogs = (props) => {
         let body = e.target.value;
         props.updateNewMessageBody(body);
     };
-    debugger
+    
     
     return (
         <div className={s.dialogs}>
