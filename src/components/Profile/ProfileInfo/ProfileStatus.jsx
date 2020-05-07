@@ -14,11 +14,20 @@ class ProfileStatus extends React.Component {
         })
     }
 
-    deActivateEditMode = () => {
+    deactivateEditMode = () => {
         this.setState({
             editMode: false
         })
         this.props.updateStatus(this.state.status);
+    }
+    
+    componentDidUpdate(prevProps, prevStatus) {
+        if (prevProps.status !== this.props.status) {
+            this.setState({
+                status:this.props.status
+            })
+        }
+        console.log('componentDidUpdate')
     }
 
     onStatusChange = (e) => {
@@ -37,11 +46,11 @@ class ProfileStatus extends React.Component {
                 }
                 {this.state.editMode &&
                     <div>
-                        <input onChange={this.onStatusChange}  autoFocus={true} onBlur={() =>{this.deActivateEditMode()}} value={this.state.status}></input>
+                        <input onChange={this.onStatusChange}  autoFocus={true} onBlur={() =>{this.deactivateEditMode()}} value={this.state.status}></input>
                     </div>
                 }
             </div>
         )
     }
 }
-export default ProfileStatus;
+export default ProfileStatus; 
