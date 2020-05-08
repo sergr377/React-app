@@ -17,7 +17,7 @@ const Dialogs = (props) => {
     let messagesElements = state.messageData.map(m =>
         <Message message={m.message} key={m.id} />
     );
-    
+
     let addMessage = (value) => {
         props.sendMessage(value.newMessageBody);
     };
@@ -44,10 +44,10 @@ const AddMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field component={Textarea} 
-                validate={[required, maxLength50]}
-                name="newMessageBody" 
-                placeholder="Enter your message" />
+                <Field component={Textarea}
+                    validate={[required, maxLength50]}
+                    name="newMessageBody"
+                    placeholder="Enter your message" />
             </div>
             <div>
                 <button> New message </button>
