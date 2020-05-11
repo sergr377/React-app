@@ -3,7 +3,7 @@ import styles from './FormsControl.module.css'
 
 
 const FormConstructor = (props) => {
-    debugger;
+    
     const hasError = props.touched && props.error;
     return (
         <div className={styles.formControl + " " + (hasError ? styles.error : "")} >
