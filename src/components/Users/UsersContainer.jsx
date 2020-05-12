@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { follow, unfollow, setCurrentPageAC, toggleFollowingProgressAC, getUsersThunkCreator } from '../../redux/users-reducer';
 import Users from './Users';
 import Preloader from '../common/preloader';
-import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 
 
