@@ -4,6 +4,7 @@ import { follow, unfollow, setCurrentPageAC, toggleFollowingProgressAC, getUsers
 import Users from './Users';
 import Preloader from '../common/preloader';
 import { compose } from 'redux';
+import { getUsers, getPageSize, getTotalUsersCount, getCurrentPage, getIsFetching, getFollowingInProgress } from '../../redux/users-selectors';
 
 
 
@@ -35,22 +36,33 @@ class UsersContainer extends React.Component {
     }
 }
 
+// let mapStateToProps = (state) => {
+//     return {
+//         users: state.usersPage.users,
+//         pageSize: state.usersPage.pageSize,
+//         totalUsersCount: state.usersPage.totalUsersCount,
+//         currentPage: state.usersPage.currentPage,
+//         isFetching: state.usersPage.isFetching,
+//         followingInProgress: state.usersPage.followingInProgress
+//     }
+// }
+
 let mapStateToProps = (state) => {
     return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress
+        users: getUsers(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state)
     }
 }
 
 export default compose(
     connect(mapStateToProps, {
-    follow: follow,
-    unfollow: unfollow,
-    setCurrentPage: setCurrentPageAC,
-    toggleFollowingProgress: toggleFollowingProgressAC,
-    getUsers: getUsersThunkCreator
-})) (UsersContainer);
+        follow: follow,
+        unfollow: unfollow,
+        setCurrentPage: setCurrentPageAC,
+        toggleFollowingProgress: toggleFollowingProgressAC,
+        getUsers: getUsersThunkCreator
+    }))(UsersContainer);
